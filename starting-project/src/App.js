@@ -3,10 +3,17 @@ import Cart from './components/Cart/Cart';
 import Header from './components/Layouts/Header';
 import Meals from './components/Meals/Meals';
 function App() {
+  const [showModal, setShowModal] = useState(false);
+  const showModalHandler = () => {
+    setShowModal(true);
+  }
+  const hideModalHandler = () => {
+    setShowModal(false);
+  }
   return (
     <>
-	  <Cart/>
-      <Header />
+      {showModal && <Cart onHide={hideModalHandler} />}
+      <Header onShow={showModalHandler} />
       <main>
         <Meals />
       </main>

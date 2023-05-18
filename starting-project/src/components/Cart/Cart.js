@@ -8,10 +8,10 @@ import { useCartState } from '../../context/cart-context';
 const Cart = (props) => {
     const cartCtx = useCartState();
     const itemRemoveHandler = (id) => {
-
+        cartCtx.removeItem(id);
     }
     const itemAddHandler = (item) => {
-
+        cartCtx.addItem({ ...item, amount: 1 });
     };
     const cartItems = cartCtx.items.map((item, i) => <CartItem name={item.name} price={item.price} amount={item.amount} onRemove={itemRemoveHandler.bind(null, item.id)} onAdd={itemAddHandler.bind(null, item)} />)
     const hasItems = cartItems.length > 0;

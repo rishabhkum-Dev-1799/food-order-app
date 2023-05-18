@@ -1,6 +1,7 @@
 import styles from './Styles/CartItem.module.css';
 
 const CartItem = (props) => {
+    debugger;
     const formattedPrice = `$${props.price.toFixed(2)}`;
     return (
         <li className={styles['cart-item']}>
